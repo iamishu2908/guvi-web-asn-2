@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- header: logo, navbar, icons-->
+    <header>
+      <!-- left side header-->
+      <div class="mobile-header">
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <div class="logo-mbl">
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+      </div>
+      
+      <div class="left-header">
+        <div class="logo">
+          <img src="./images/logo.svg" alt="logo" />
+        </div>
+        <nav>
+          <ul class="navbar">
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">About </a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- right side header-->
+      <div class="right-header">
+        <div class="icons">
+          <div class="cart-icon" onclick="openCartBox()" id="cart-icon-nav">
+            <div id="cart-item-count"><b>0</b></div>
+            <img src="./images/icon-cart.svg" alt="shopping-cart" />
+          </div>
+          <div class="avatar">
+            <img src="./images/image-avatar.png" alt="user" height="60px" />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!--main-body-->
+
+    <section class="main-body">
+      <!-- mobile-product-image-nav-->
+      <div class="mbl-modal-content">
+        <a onclick="changeImage(-1)" class="mbl-prev"
+          ><img src="./images/icon-previous.svg" alt="logo"
+        /></a>
+
+        <img id="mbl-modalImage" src="images/image-product-1.jpg" />
+        <a class="mbl-next" onclick="changeImage(1)"
+          ><img src="./images/icon-next.svg" alt="logo"
+        /></a>
+      </div>
+      <!--product-image-->
+      <div class="product-navigation">
+        <div class="product">
+          <!--product-image on homepage-->
+          <img
+            class="product-image"
+            src="./images/image-product-1.jpg"
+            alt="product"
+          />
+          <!--gallery of product images-->
+          <div class="gallery">
+            <img
+              src="./images/image-product-1-thumbnail.jpg"
+              alt="product"
+              onclick="openModal(0)"
+            />
+            <img
+              src="./images/image-product-2-thumbnail.jpg"
+              alt="product"
+              onclick="openModal(1)"
+            />
+            <img
+              src="./images/image-product-3-thumbnail.jpg"
+              alt="product"
+              onclick="openModal(2)"
+            />
+            <img
+              src="./images/image-product-4-thumbnail.jpg"
+              alt="product"
+              onclick="openModal(3)"
+            />
+          </div>
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()"
+              ><img src="./images/icon-close.svg" alt="logo"
+            /></span>
+            <div class="modal-content">
+              <img id="modalImage" src="" />
+              <a class="prev" onclick="changeImage(-1)"
+                ><img src="./images/icon-previous.svg" alt="logo"
+              /></a>
+              <a class="next" onclick="changeImage(1)"
+                ><img src="./images/icon-next.svg" alt="logo"
+              /></a>
+            </div>
+            <div class="modal-gallery">
+              <img
+                src="./images/image-product-1-thumbnail.jpg"
+                alt="product"
+                onclick="openModal(0)"
+              />
+              <img
+                src="./images/image-product-2-thumbnail.jpg"
+                alt="product"
+                onclick="openModal(1)"
+              />
+              <img
+                src="./images/image-product-3-thumbnail.jpg"
+                alt="product"
+                onclick="openModal(2)"
+              />
+              <img
+                src="./images/image-product-4-thumbnail.jpg"
+                alt="product"
+                onclick="openModal(3)"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--product-details-->
+      <div class="product-details">
+        <h4 class="sneaker">SNEAKER COMPANY</h4>
+        <div class="product-name">
+          <h1 class="sneaker-name">Fall Limited Edition Sneakers</h1>
+          <p>
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they'll withstand everything
+            the weather can offer.
+          </p>
+        </div>
+        <div class = "price-details">
+          <div class = "price-1">
+            <div class="price">$125.00</div>
+            <div class = "discount">50%</div>
+          </div>
+          <div class = "org-price">$250.00</div>
+        </div>
+        
+        <div class="buttons">
+          <div class="choose-qty">
+            <div>
+              <button class="btn-sub" id="sub-qty">
+                <img src="./images/icon-minus.svg" alt="minus" />
+              </button>
+            </div>
+            <h4 id="count">0</h4>
+            <div>
+              <button class="btn-add" id="add-qty">
+                <img src="./images/icon-plus.svg" alt="plus" />
+              </button>
+            </div>
+          </div>
+          <button class="add-to-cart-button" id="add-to-cart">
+            <span class="button-icon"
+              ><img src="./images/icon-cart.svg" alt="shopping-cart"
+            /></span>
+            <h6>Add to Cart</h6>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cart display container-->
+    <div class="cartDisplay" id="cartdisp">
+      <span class="cart-close" onclick="closeCartBox()"
+        ><img src="./images/icon-close.svg" alt="logo"
+      /></span>
+      <div class="cart-header">
+        <h4>Cart</h4>
+        <hr />
+      </div>
+      <div class="cart-content" id="cart-content"></div>
+    </div>
+  </body>
+</html>
